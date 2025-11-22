@@ -23,7 +23,7 @@ namespace YourPluginNamespace
             UnturnedPlayer player = (UnturnedPlayer)caller;
             Vector3 pos = player.Position;
 
-            UnturnedChat.Say(player, $"📍 Your position: X: {pos.x:F2}, Y: {pos.y:F2}, Z: {pos.z:F2}", Color.green);
+            UnturnedChat.Say(player, $"Your position: X: {pos.x:F2}, Y: {pos.y:F2}, Z: {pos.z:F2}", Color.green);
             Logger.Log($"{player.DisplayName} checked position: X: {pos.x:F2}, Y: {pos.y:F2}, Z: {pos.z:F2}");
         }
     }
