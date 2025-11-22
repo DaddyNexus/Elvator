@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Logger = Rocket.Core.Logging.Logger;
 
-namespace YourPluginNamespace
+namespace nexus
 {
     public class CommandCheckPos : IRocketCommand
     {
