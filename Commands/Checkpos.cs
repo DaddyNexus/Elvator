@@ -1,5 +1,5 @@
 ﻿using Rocket.API;
-using Rocket.Core.Logging; // Add this using directive for the Logger
+using Rocket.Core.Logging;
 using Rocket.Unturned.Chat;
 using Rocket.Unturned.Player;
 using SDG.Unturned;
@@ -23,10 +23,7 @@ namespace YourPluginNamespace
             UnturnedPlayer player = (UnturnedPlayer)caller;
             Vector3 pos = player.Position;
 
-            // Send a private message to the player in-game
             UnturnedChat.Say(player, $"📍 Your position: X: {pos.x:F2}, Y: {pos.y:F2}, Z: {pos.z:F2}", Color.green);
-
-            // NEW: Log the player's name and position to the server console
             Logger.Log($"{player.DisplayName} checked position: X: {pos.x:F2}, Y: {pos.y:F2}, Z: {pos.z:F2}");
         }
     }

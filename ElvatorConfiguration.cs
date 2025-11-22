@@ -26,7 +26,7 @@ namespace ElevatorPlugin
                     Position = new SerializableVector3(100, 50, -20),
                     Radius = 5f,
                     UseZoneTrigger = true,
-                    TriggerItemID = 0, // Not needed for zone trigger
+                    TriggerItemID = 0,
                     Floors = new List<Floor>
                     {
                         new Floor { ButtonName = "Floor_1", DisplayName = "Lobby", Destination = new SerializableVector3(100, 50, -20) },
@@ -39,8 +39,8 @@ namespace ElevatorPlugin
                     Name = "SecretBunkerElevator",
                     Position = new SerializableVector3(-45, 20, 150),
                     Radius = 2f,
-                    UseZoneTrigger = false, // This one requires a punch
-                    TriggerItemID = 328,   // ID of the object to punch
+                    UseZoneTrigger = false,
+                    TriggerItemID = 328,
                     Floors = new List<Floor>
                     {
                         new Floor { ButtonName = "Floor_1", DisplayName = "Surface", Destination = new SerializableVector3(-45, 20, 150) },
@@ -58,7 +58,7 @@ namespace ElevatorPlugin
         public SerializableVector3 Position { get; set; }
         public float Radius { get; set; }
         public bool UseZoneTrigger { get; set; }
-        public ushort TriggerItemID { get; set; } // The barricade/structure ID to punch
+        public ushort TriggerItemID { get; set; }
 
         [XmlArray("Floors")]
         [XmlArrayItem("Floor")]
@@ -72,7 +72,6 @@ namespace ElevatorPlugin
         public SerializableVector3 Destination { get; set; }
     }
 
-    // Helper class to make Unity's Vector3 serializable for the config file
     public class SerializableVector3
     {
         public float X { get; set; }

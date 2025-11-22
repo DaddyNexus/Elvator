@@ -21,7 +21,6 @@ namespace ElevatorPlugin.Commands
             var player = (UnturnedPlayer)caller;
             var config = ElevatorPlugin.Instance?.Configuration?.Instance;
 
-            // Check if the plugin or its configuration is loaded and if there are any elevators
             if (config?.Elevators == null || !config.Elevators.Any())
             {
                 UnturnedChat.Say(player, "No elevators are configured on this server.", Color.red);
@@ -31,7 +30,6 @@ namespace ElevatorPlugin.Commands
             Elevator closestElevator = null;
             float closestDistance = float.MaxValue;
 
-            // Loop through all elevators to find the one closest to the player
             foreach (var elevator in config.Elevators)
             {
                 float distance = Vector3.Distance(player.Position, elevator.Position.ToVector3());
@@ -42,18 +40,14 @@ namespace ElevatorPlugin.Commands
                 }
             }
 
-            // Define the maximum distance a player can be from an elevator to use the command
             const float maxActivationDistance = 10f;
 
-            // Check if an elevator was found and if it's within the allowed range
             if (closestElevator != null && closestDistance <= maxActivationDistance)
             {
-                // Success: Open the UI for the nearby elevator
                 ElevatorPlugin.Instance.OpenElevatorUI(player, closestElevator);
             }
             else
             {
-                // Failure: Player is not close enough to any elevator
                 UnturnedChat.Say(player, "You are not near an elevator.", Color.yellow);
             }
         }

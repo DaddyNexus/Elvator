@@ -97,18 +97,15 @@ namespace ElevatorPlugin
 
             if (player == null) return;
 
-            // Cooldown Check
             if (PunchCooldowns.ContainsKey(player.CSteamID) && (DateTime.Now - PunchCooldowns[player.CSteamID]).TotalSeconds < 2)
             {
                 return;
             }
 
-            // Raycast for both barricades and structures
             if (Physics.Raycast(player.Player.look.aim.position, player.Player.look.aim.forward, out RaycastHit hit, 3f, RayMasks.BARRICADE | RayMasks.STRUCTURE))
             {
                 ushort itemID = 0;
 
-                // Try to identify the punched object's ID
                 BarricadeDrop barricadeDrop = BarricadeManager.FindBarricadeByRootTransform(hit.transform);
                 if (barricadeDrop != null)
                 {
@@ -123,14 +120,11 @@ namespace ElevatorPlugin
                     }
                 }
 
-                // If we successfully got an item ID
                 if (itemID != 0)
                 {
-                    // Find the FIRST elevator that uses this item ID as a punch trigger.
                     var targetElevator = Configuration.Instance.Elevators
                         .FirstOrDefault(e => !e.UseZoneTrigger && e.TriggerItemID == itemID);
 
-                    // If we found a matching elevator in the config
                     if (targetElevator != null)
                     {
                         Logger.Log($"{player.DisplayName} punched elevator '{targetElevator.Name}'!");
