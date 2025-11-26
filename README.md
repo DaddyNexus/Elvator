@@ -4,7 +4,8 @@ Its a (elevator plugin)
 # About
 > A ui pops up with how many floors u configure
 > you click the floor you wanna go to and it will tp you there
-
+> You can make a zone so when a player walks in there the ui pops up
+> or u can assign it to a id and they just punch or point at it
 # Configuration 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
