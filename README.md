@@ -5,6 +5,7 @@ Its a (elevator plugin)
 > A ui pops up with how many floors u configure
 > you click the floor you wanna go to and it will tp you there
 
+# Configuration 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ElevatorPluginConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
